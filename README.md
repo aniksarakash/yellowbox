@@ -9,7 +9,8 @@ The end goal of this project would be for the seedbox to be used as a means of f
 
 For now, the seedbox only operates locally on 192.168.16.108:1777, a local sub-network address (on a custom port), for future reference.
 ```bash
-sudo ./boot.sh # is how you run the seedbox server on localhost:1777
+sudo ./boot.sh # followed by your desired admin password (which you need in order to add/remove torrents) (overrides)
+# the salted password hash will be stored in key.txt and the seedbox server will be hosted on localhost:1777
 ```
 
 ## Dependencies
