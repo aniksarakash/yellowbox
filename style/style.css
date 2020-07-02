@@ -1,5 +1,5 @@
 body {
-    margin: 0;
+    margin: 0 0 2em;
     background-color: #140420;
     color: #140420;
   }
@@ -14,8 +14,9 @@ body {
   text-align: center;
   background-color: black;
   color: #f7174d;
-  padding: 1em;
+  padding-top: 1em;
   overflow: auto;
+  margin: 1.5em 0;
 }
 
 .torrent_info pre {
