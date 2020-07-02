@@ -1,4 +1,8 @@
 #!/bin/bash
+if [ "$#" -ne 1 ]; then 
+    echo "Please provide a single admin password for the seedbox as input!"
+    exit
+fi
 
 if ! ps ax | grep -v "grep" | grep "/usr/bin/deluged" > /dev/null
 then
@@ -13,5 +17,11 @@ then
     # makes sure php server is running on port 1777
     sudo php -S localhost:1777 &
 fi
+
+passwd=$(php -r "echo password_hash(\"$1\", PASSWORD_DEFAULT);")
+
+echo "$passwd" > "./key.txt" 
+echo "Your password is now $1. Don't forget it!"
+echo "Its salted hash ($passwd) has been stored in key.txt as plaintext."
 
 exit

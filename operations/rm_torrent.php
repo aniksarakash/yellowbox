@@ -1,22 +1,31 @@
 <?php
-  $torrent_id = htmlspecialchars($_POST['torrent_id']);
-  $rm_key  = htmlspecialchars($_POST['rm_key']);
-  if (isset($_POST['rm_clicked'])){
+    
+    if (isset($_POST['rm_clicked'])) {
+        // the button was clicked
+        include 'verify_key.php';
+        
+        if (!is_key_valid($_POST['rm_key'])) {
+            // check if pass is not a ok
+            echo '<div class="torrents"><div class="torrent_info"><pre>';
+            echo 'Wrong password!';
+            // output the removal response
+            echo '</pre></div></div>';
+        }
+        else {
+            $rm_command = '/usr/bin/deluge-console rm '.$_POST['torrent_id'];
+            $escaped_rm_command = escapeshellcmd($rm_command);
+            // make sure to sanitise/safely escape the command
 
-    $rm_command = '/usr/bin/deluge-console rm '.$_POST['torrent_id'];
-    $escaped_rm_command = escapeshellcmd($rm_command);
-    // make sure to sanitise/safely escape the command
+            exec($escaped_rm_command);
+            // remove!
 
-    exec($escaped_rm_command);
-    // remove!
-
-    echo '<div class="torrents"><div class="torrent_info"><pre>';
-
-    echo 'The torrent with the specified id has been deleted (if it ever existed).';
-    // output the removal response
-
-    echo '</pre></div></div>';
-  }
+            echo '<div class="torrents"><div class="torrent_info"><pre>';
+            echo 'The torrent with the specified id has been deleted (if it ever existed).';
+            // output the removal response
+            echo '</pre></div></div>';
+    
+        }
+    }
 ?>
 
 <div class="op">

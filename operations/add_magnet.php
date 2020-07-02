@@ -1,23 +1,33 @@
 <?php
-  $magnet = htmlspecialchars($_POST['magnet']);
-  $add_key  = htmlspecialchars($_POST['add_key']);
-  if (isset($_POST['add_clicked'])){
+    
+    if (isset($_POST['add_clicked'])) {
+        // the button was clicked
+        include 'verify_key.php';
+        
+        if (!is_key_valid($_POST['add_key'])) {
+            // check if pass is not a ok
+            echo '<div class="torrents"><div class="torrent_info"><pre>';
+            echo 'Wrong password!';
+            // output the removal response
+            echo '</pre></div></div>';
+        }
+        else {
+            $add_command = '/usr/bin/deluge-console add '.$_POST['magnet'];
+            $escaped_add_command = escapeshellcmd($add_command);
+            // make sure to sanitise/safely escape the command
 
-    $add_command = '/usr/bin/deluge-console add '.$_POST['magnet'];
-    $escaped_add_command = escapeshellcmd($add_command);
-    // make sure to sanitise/safely escape the command
+            echo '<div class="torrents"><div class="torrent_info"><pre>';
 
-    echo '<div class="torrents"><div class="torrent_info"><pre>';
+            $out = array();
+            exec($escaped_add_command, $out);
+            foreach($out as $line) {
+                echo "$line\n";
+            }
+            // output the addition response
 
-    $out = array();
-    exec($escaped_add_command, $out);
-    foreach($out as $line) {
-        echo "$line\n";
+            echo '</pre></div></div>';
+        }
     }
-    // output the addition response
-
-    echo '</pre></div></div>';
-  }
 ?>
 
 <div class="op">
