@@ -6,12 +6,12 @@
     <div class="torrents">
 	<?php
 		$out = array();
-		exec("deluge-console info", $out);
-        echo '<pre class="torrent_info">';
+        exec("deluge-console info", $out);
+        echo '<div class="torrent_info"><pre>';
 		foreach($out as $line) {
 			echo "$line\n\n";
 		}
-        echo '</pre>';
+        echo '</pre></div>';
 	?>
     </div>
 </body>

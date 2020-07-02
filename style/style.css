@@ -11,13 +11,15 @@ body {
 }
 
 .torrent_info {
+  text-align: center;
   background-color: black;
   color: #f7174d;
-  text-align: center;
   padding: 1em;
-  display: inline-block;
   overflow: auto;
-  width: 100%;
+}
+
+.torrent_info pre {
+  display: inline-block;
 }
 
 .op_title {
@@ -42,7 +44,7 @@ body {
   justify-content: center;
   background-color: #E0491E;
   flex-wrap: wrap;
-  max-width: 50%;
+  max-width: 37.5%;
   padding: 0.75em;
   text-align: center;
   margin: 2em auto;
