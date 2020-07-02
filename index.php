@@ -1,17 +1,11 @@
 <!DOCTYPE html>
 <head>
-	<title> foobar </title>
+	<title> yellowbox_ </title>
 </head>
 <body>
-	<p> lorem ipsum </p>
 	<?php
-		$out = array();
-		exec("deluge-console info", $out);
-		foreach($out as $line) {
-			echo '<pre>';
-			echo "$line \n";
-			echo '</pre>';
-		}
+		include './operations/add_magnet.html';
+		include './operations/rm_torrent.html';
+		include './components/torrent_listing.php';
 	?>
-
 </body>
