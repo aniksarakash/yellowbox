@@ -7,6 +7,9 @@
     $escaped_rm_command = escapeshellcmd($rm_command);
     // make sure to sanitise/safely escape the command
 
+    exec($escaped_rm_command);
+    // remove!
+
     echo '<div class="torrents"><div class="torrent_info"><pre>';
 
     echo 'The torrent with the specified id has been deleted (if it ever existed).';
