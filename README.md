@@ -1,5 +1,5 @@
 # yellowbox
-yellowbox is a Deluge-operated seedbox served from under my desk on an old Raspberry Pi 1 Model B. It runs remotely under the guise of an Apache2 (Debian) Web Server.
+yellowbox is a Deluge-operated seedbox served from under my desk on an old Raspberry Pi 1 Model B. It runs remotely with the help of the built-in php web server. (TODO: migrate from the built-in web server to apache2)
 
 ## Motivation
 
@@ -7,10 +7,16 @@ The end goal of this project would be for the seedbox to be used as a means of f
 
 ## Usage
 
-For now, the seedbox only operates locally on 192.168.16.108, a sub-network. (for future reference)
+For now, the seedbox only operates locally on 192.168.16.108:1777, a local sub-network address (on a custom port), for future reference.
 ```bash
-service apache2 start # is how you start an apache server
+sudo ./boot.sh # is how you run the seedbox server on localhost:1777
 ```
+
+## Dependencies
+
+- php7.3+
+- deluged
+- deluge-console
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
