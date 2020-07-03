@@ -54,24 +54,29 @@ body {
 
 input {
   margin: 0.5em 0;
-  width: 10em;
+  width: 14em;
   font-size: 1em;
   background-color: white;
+  border-color: #140420;
+}
+
+input:focus {
+  outline: none;
 }
 
 button {
-    margin: 1em auto 0.5em;
-    outline: none;
-    text-align: center;
-    width: 10em;
-    font-size: 1em;
-    background-color: #140420;
-    color: #d3dae3;
-    font-family: Open Sans;
-    padding-top: 0.5em; padding-bottom: 0.5em;
-    border: 0.1em solid #140420;
-    border-radius: 0.4em;
-    box-shadow: 0 4px 8px 0 rgba(20, 4, 32, 0.3), 0 6px 20px 0 rgba(20, 4, 32, 0.29);
+  margin: 1em auto 0.5em;
+  outline: none;
+  text-align: center;
+  width: 10em;
+  font-size: 1em;
+  background-color: #140420;
+  color: #d3dae3;
+  font-family: Open Sans;
+  padding-top: 0.5em; padding-bottom: 0.5em;
+  border: 0.1em solid #140420;
+  border-radius: 0.4em;
+  box-shadow: 0 4px 8px 0 rgba(20, 4, 32, 0.2), 0 6px 20px 0 rgba(20, 4, 32, 0.19);
 }
 
 button:active {
