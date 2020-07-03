@@ -26,4 +26,8 @@ sudo echo "$passwd" > "./key.txt"
 
 printf "\n\nYour password is now $1. Don't forget it!\nIts salted hash ($passwd) has been stored in key.txt as plaintext.\n\n"
 
+sudo chgrp -R www-data /var/www/.config
+sudo chmod -R g+rxs /var/www/.config
+# make sure the .config file is accessible to deluge
+
 exit
