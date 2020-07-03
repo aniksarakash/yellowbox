@@ -17,11 +17,9 @@ then
     sudo deluge-console config -s download_location $PWD/storage &
 fi
 
-if ! ps ax | grep -v "grep" | grep "php -S localhost:8080" > /dev/null 
-then
-    # makes sure php server is running on port 8080
-    sudo php -S localhost:8080 &
-fi
+sudo /etc/init.d/lighttpd restart
+# (re)start the server
+
 passwd=$(php -r "echo password_hash(\"$1\", PASSWORD_DEFAULT);")
 
 sudo echo "$passwd" > "./key.txt" 
