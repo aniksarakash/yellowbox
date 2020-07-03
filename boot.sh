@@ -1,4 +1,9 @@
 #!/bin/bash
+
+#    in order for this to work, make sure www-data has access to the deluge config files in the relevant home folder!
+#    (you can do this by adding yourself into the www-data group, changing the group of the home folder to www-data, 
+#    and changing perms if necessary)
+
 if [ "$#" -ne 1 ]; then 
     echo "Please provide a single admin password for the seedbox as input!"
     exit
@@ -12,9 +17,11 @@ then
     sudo deluge-console config -s download_location $PWD/storage &
 fi
 
-# restarts the apache2 server on the default port
-sudo /etc/init.d/apache2 restart &
-
+if ! ps ax | grep -v "grep" | grep "php -S localhost:8080" > /dev/null 
+then
+    # makes sure php server is running on port 8080
+    sudo php -S localhost:8080 &
+fi
 passwd=$(php -r "echo password_hash(\"$1\", PASSWORD_DEFAULT);")
 
 sudo echo "$passwd" > "./key.txt" 
