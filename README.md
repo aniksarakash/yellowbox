@@ -7,7 +7,7 @@ The end goal of this project would be for the seedbox to be used as a means of f
 
 ## Usage
 
-For now, the seedbox only operates locally on 192.168.16.108:1777, a local sub-network address (on a custom port), for future reference.
+For now, the seedbox only operates locally on 192.168.16.108:17772, a local sub-network address (on a custom port), for future reference.
 ```bash
 sudo ./boot.sh  # followed by your desired admin password (overrides the current one if it exists)
                 # you need this in order to securely add/remove torrents

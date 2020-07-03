@@ -14,8 +14,8 @@ fi
 
 if ! ps ax | grep -v "grep" | grep "php -S localhost:17772" > /dev/null 
 then
-    # makes sure php server is running on port 1777
-    sudo php -S localhost:1777 &
+    # makes sure php server is running on port 17772
+    sudo php -S localhost:17772 &
 fi
 
 passwd=$(php -r "echo password_hash(\"$1\", PASSWORD_DEFAULT);")
