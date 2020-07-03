@@ -13,8 +13,6 @@ if ! ps ax | grep -v "grep" | grep "/usr/bin/deluged" > /dev/null
 then
     # makes sure deluged is running
     sudo /usr/bin/deluged &
-    # sets the download directory as the ./storage folder
-    sudo deluge-console config -s download_location $PWD/storage &
 fi
 
 sudo /etc/init.d/lighttpd restart
