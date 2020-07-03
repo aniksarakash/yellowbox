@@ -7,7 +7,7 @@ The seedbox can be used as a means of fetching data directly from magnet links v
 
 ## Usage
 
-For now, the seedbox (while self-hosted) has two ports (ssh for transfers and http for the main user interaction) tunneled via [ngrok](ngrok.com).
+For now, the seedbox (while self-hosted) has two ports (ssh for transfers and http for the main user interaction) tunneled via [ngrok](https://ngrok.com).
 ```bash
 sudo ./boot.sh  # followed by your desired admin password (overrides the current one if it exists)
                 # you need this in order to securely add/remove torrents
