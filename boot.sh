@@ -21,7 +21,7 @@ sudo /etc/init.d/lighttpd restart
 passwd=$(php -r "echo password_hash(\"$1\", PASSWORD_DEFAULT);")
 
 sudo echo "SEEDBOX_PASSWD='$passwd'" >> /etc/environment
-# add the password has as a global environmental variable in $SEEDBOX_PASSWD
+# add the password hash as a global environmental variable in $SEEDBOX_PASSWD
 sudo . /etc/environment
 # source it
 
