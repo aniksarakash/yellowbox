@@ -20,7 +20,10 @@ sudo /etc/init.d/lighttpd restart
 
 passwd=$(php -r "echo password_hash(\"$1\", PASSWORD_DEFAULT);")
 
-sudo echo "SEEDBOX_PASSWD=\"$passwd\"" >> /etc/environment
+sudo echo "SEEDBOX_PASSWD='$passwd'" >> /etc/environment
+# add the password has as a global environmental variable in $SEEDBOX_PASSWD
+sudo . /etc/environment
+# source it
 
 printf "\n\nYour password is now $1. Don't forget it!\nIts salted hash ($passwd) has been stored in key.txt as plaintext.\n\n"
 
