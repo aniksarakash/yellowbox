@@ -13,7 +13,7 @@ sudo ./boot.sh  # followed by your desired admin password (overrides the current
                 # you need this in order to securely add/remove torrents
                 # the salted password hash will be stored in key.txt and the seedbox server will be hosted on localhost:80
 ```
-The www-data user's deluge .config files will be stored in `/var/www/.config/deluge`.
+The www-data user's deluge .config files will be stored in `/var/www/.config/deluge`. The hash for the admin password created on boot is stored in `/etc/environment`.
 All downloaded files can be retrieved with `scp -P {port_number} pi@{some_id}.tcp.ngrok.io:~/Downloads/* .`.
 
 ## Dependencies
